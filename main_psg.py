@@ -1,8 +1,4 @@
 # img_viewer.py
-import time
-
-import PySimpleGUI as sg
-import os.path
 
 from main import *
 # from main import extract_top_5, input_file, output_folder, split_csv_file, status

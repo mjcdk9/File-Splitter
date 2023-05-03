@@ -1,11 +1,4 @@
-import os
-import pandas as pd
-import PySimpleGUI as sg
 from main_psg import *
-import logging
-import threading
-import time
-
 
 
 def split_csv_file(input_file, output_folder, rows_per_file):
