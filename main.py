@@ -1,4 +1,7 @@
 from main_psg import *
+import pandas as pd
+import os
+
 
 
 def split_csv_file(input_file, output_folder, rows_per_file):

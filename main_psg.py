@@ -1,5 +1,8 @@
 # img_viewer.py
-
+import logging
+import threading
+import time
+import PySimpleGUI as sg
 from main import *
 # from main import extract_top_5, input_file, output_folder, split_csv_file, status
 
