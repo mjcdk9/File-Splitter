@@ -39,6 +39,8 @@ file_list_column = [
 image_viewer_column = [
     [sg.Text("Choose an option below:")],
     [sg.Text(size=(40, 1), key="-TOUT-")],
+    [sg.Text("Enter number of rows per file"),
+    sg.Input(key="-IN-")],
     [sg.Button("Short File Splitter", key="-HEADSPLIT-"),
     sg.Button("Large file splitter", key="-MULTISPLIT-")],
     # [sg.Input(key="-Number of rows per file-")],
@@ -74,12 +76,16 @@ while True:
         extract_top_5(values["-PATH-"], output_folder, 5)
         status = "Complete"
         window["-STATUS-"].update(status)
+        time.sleep(3)
+        window.close()
 
     elif event == "-MULTISPLIT-":
         status = "Loading..."
         window["-STATUS-"].update(status)
         print(values["-PATH-"])
         print("multisplit")
-        split_csv_file(values["-PATH-"], output_folder, 50)
+        split_csv_file(values["-PATH-"], output_folder, int(values["-IN-"]))
         status = "Complete"
         window["-STATUS-"].update(status)
+        time.sleep(3)
+        window.close()
