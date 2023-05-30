@@ -59,7 +59,7 @@ def extract_top_5(input_file_path, output_folder, number_of_rows_in_short_file):
 
 input_file = "file.csv"
 output_folder = "output"
-rows_per_file = 50000
+rows_per_file = 7
 status = "testing"
 
 # split_csv_file(input_file, output_folder, rows_per_file)

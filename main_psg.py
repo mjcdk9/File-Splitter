@@ -68,9 +68,10 @@ while True:
         event == "-HEADSPLIT-"
         print(values["-PATH-"])
         print("headsplit")
-        x = threading.Thread(target=thread_function, args=(1,))
-        x.start()
-        # extract_top_5(values["-PATH-"], output_folder, 5)
+        # x = threading.Thread(target=thread_function, args=(1,))
+        # x.start()
+        status = "Splitting file"
+        extract_top_5(values["-PATH-"], output_folder, 5)
         status = "Complete"
         window["-STATUS-"].update(status)
 
