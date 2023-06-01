@@ -7,24 +7,6 @@ from main import *
 # from main import extract_top_5, input_file, output_folder, split_csv_file, status
 
 
-
-def thread_function(name):
-    print("thread start")
-    logging.info("Thread %s: starting", name)
-    extract_top_5(values["-PATH-"], output_folder, 5)
-    print("thread stop")
-    time.sleep(2)
-    logging.info("Thread %s: finishing", name)
-
-
-
-
-
-
-
-
-
-
 # First the window layout in 2 columns
 
 file_list_column = [
@@ -41,10 +23,11 @@ image_viewer_column = [
     [sg.Text(size=(40, 1), key="-TOUT-")],
     [sg.Text("Enter number of rows per file"),
     sg.Input(key="-IN-")],
+    [sg.Text("Select output folder path"),
+    sg.Input(key="-OutputPath-", change_submits=True),
+    sg.FolderBrowse(key="-OutputFolder-", change_submits=True)],
     [sg.Button("Short File Splitter", key="-HEADSPLIT-"),
     sg.Button("Large file splitter", key="-MULTISPLIT-")],
-    # [sg.Input(key="-Number of rows per file-")],
-
 ]
 
 # ----- Full layout -----
@@ -61,7 +44,7 @@ window = sg.Window("File Browser", layout)
 
 while True:
     event, values = window.read()
-    # print(values["-Path-"])
+
     if event == "Exit" or event == sg.WIN_CLOSED:
         break
     elif event == "-HEADSPLIT-":
@@ -70,10 +53,8 @@ while True:
         event == "-HEADSPLIT-"
         print(values["-PATH-"])
         print("headsplit")
-        # x = threading.Thread(target=thread_function, args=(1,))
-        # x.start()
         status = "Splitting file"
-        extract_top_5(values["-PATH-"], output_folder, 5)
+        extract_top_5(values["-PATH-"], values["-OutputPath-"], 5)
         status = "Complete"
         window["-STATUS-"].update(status)
         time.sleep(3)
@@ -84,7 +65,7 @@ while True:
         window["-STATUS-"].update(status)
         print(values["-PATH-"])
         print("multisplit")
-        split_csv_file(values["-PATH-"], output_folder, int(values["-IN-"]))
+        split_csv_file(values["-PATH-"], values["-OutputPath-"], int(values["-IN-"]))
         status = "Complete"
         window["-STATUS-"].update(status)
         time.sleep(3)
