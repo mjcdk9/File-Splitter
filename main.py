@@ -30,7 +30,7 @@ def split_csv_file(input_file, output_folder, rows_per_file):
     status = "Complete"
 
 
-def extract_top_5(input_file_path, output_folder, number_of_rows_in_short_file):
+def extract_top_5(input_file, output_folder, number_of_rows_in_short_file):
     # Load the input CSV file into a pandas dataframe
     df = pd.read_csv(input_file, encoding='latin-1')
 
@@ -57,7 +57,7 @@ def extract_top_5(input_file_path, output_folder, number_of_rows_in_short_file):
     status = "Complete"
 
 
-input_file = "file.csv"
+input_file = "file"
 # output_folder = ["-OutputPath-"]
 rows_per_file = ["-IN-"]
 status = " "
