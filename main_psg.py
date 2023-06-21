@@ -10,6 +10,7 @@ from main import *
 # First the window layout in 2 columns
 
 file_list_column = [
+        [sg.Text("          Select the file you want to split:")],
         [sg.Text("File "),
         # sg.In(size=(25, 1), enable_events=True, key="-FILE-"),
         sg.Input(key="-PATH-", change_submits=True),
